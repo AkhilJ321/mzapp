@@ -38,6 +38,7 @@
     />
     <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}" />
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/updated.css' %}" />
     <style>
       .imge {
         display: flex;
@@ -45,6 +46,37 @@
         height: auto;
       }
     </style>
+
+    <!-- updated styles -->
+
+    <style>
+      .sol-text {
+        color: green;
+        position: absolute;
+        top: 82%;
+        left: 50%;
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: 900;
+        transform: translate(-50%, -50%);
+      }
+
+      @media (min-width: 900px) {
+        .sol-text {
+          color: green;
+          position: absolute;
+          top: 70%;
+          font-size: 40px;
+          font-weight: 900;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .category-post .container {
+        margin-top: 80px;
+      }
+    </style>
+
     <!--
 
 TemplateMo 564 Plot Listing
@@ -94,11 +126,11 @@ https://templatemo.com/tm-564-plot-listing
                 <li><a href="/about" class="active">About us</a></li>
                 <li><a href="/contact">Contact Us</a></li>
                 <li>
-                  <div class="main-white-button">
+                  <!-- <div class="main-white-button">
                     <a href="/classifymosquito"
                       ><i class="fa fa-plus"></i>Scan your mosquito</a
                     >
-                  </div>
+                  </div> -->
                 </li>
               </ul>
               <a class="menu-trigger">
@@ -117,8 +149,11 @@ https://templatemo.com/tm-564-plot-listing
         <div class="row">
           <div class="col-lg-8">
             <div class="top-text header-text">
-              <h6>Our Solutions</h6>
-              <h2>We have a wide range of Solutions for you</h2>
+              <h2>
+                We have Solutions for
+                <br />
+                <span class="auto-type"></span>
+              </h2>
             </div>
           </div>
         </div>
@@ -126,6 +161,7 @@ https://templatemo.com/tm-564-plot-listing
     </div>
 
     <div class="category-post">
+      <h2 class="sol-text">Our Solutions</h2>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -226,7 +262,7 @@ https://templatemo.com/tm-564-plot-listing
                                   <div class="row">
                                     <div class="col-lg-9">
                                       <h4>Mosquito Classification</h4>
-                                      <p>
+                                      <p class="ml-0">
                                         The image of a mosquito is collected in
                                         the system and run into the model which
                                         detects the accurate species of mosquito
@@ -611,7 +647,7 @@ https://templatemo.com/tm-564-plot-listing
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="section-heading">
+            <div class="section-heading p-3">
               <h2>Testimonials</h2>
               <h6>Check It Out</h6>
             </div>
@@ -620,15 +656,15 @@ https://templatemo.com/tm-564-plot-listing
       </div>
     </div>
     <section class="gradient-custom">
-      <div class="container my-5 py-5">
+      <div class="container">
         <div class="row d-flex justify-content-center">
           <div class="col-md-12">
-            <div class="text-center mb-4 pb-2">
-              <i class="fas fa-quote-left fa-3x text-white"></i>
+            <div class="text-center">
+              <!-- <i class="fas fa-quote-left fa-3x text-white"></i> -->
             </div>
 
             <div class="card">
-              <div class="card-body px-4 py-5">
+              <div class="card-body px-4 py-6">
                 <!-- Carousel wrapper -->
                 <div
                   id="carouselDarkVariant"
@@ -794,7 +830,7 @@ https://templatemo.com/tm-564-plot-listing
               </div>
             </div>
 
-            <div class="text-center mt-4 pt-2">
+            <div class="text-center">
               <i class="fas fa-quote-right fa-3x text-white"></i>
             </div>
           </div>
@@ -870,5 +906,19 @@ https://templatemo.com/tm-564-plot-listing
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      var typed = new Typed(".auto-type", {
+        strings: [
+          "Mosquito classification",
+          "Disease Endemic Prediction",
+          "Hostspot Visualisation",
+          "Water Bodies Detections",
+        ],
+        typeSpeed: 150,
+        backSpeed: 150,
+        loop: true,
+      });
+    </script>
   </body>
 </html>
