@@ -3,9 +3,7 @@ from . import k
 import urllib.request
 import json
 import ast
-import cv2
 import os
-import numpy as np
 def grab_image(path=None, stream=None, url=None):
 	# if the path is not None, then load the image from disk
 	if path is not None:
@@ -63,6 +61,7 @@ def contact(request):
         context = {"f":0}
     return render(request ,'contact.html',context)
 def water(request):
+    """
     if request.method == "POST":
      try:
          os.remove('im.jpg')
@@ -87,7 +86,7 @@ def water(request):
           cv2.rectangle(image,(x1,y1),(y2,x2),(0,0,255),3)
         cv2.imwrite('static/assets/images/im.jpg',image)
         context = {"scanned":1}
-        return render(request , 'water.html',context)
+        return render(request , 'water.html',context)"""
     context = {"scanned":0}
     return render(request ,'water.html',context)
 def endemic(request):
