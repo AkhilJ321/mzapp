@@ -82,14 +82,30 @@ https://templatemo.com/tm-564-plot-listing
         </div>
     </div>
     <div class="about_us">
-        <h3> Water body detection</h3>
-        <p style="
-        width: 40%;
-        align-self: center;
-    ">We are developing a computer program that maps exposed water tanks and swimming pools based on aerial images
-            and aims to control disease dengue and malaria.<br>
-            <span style="color: #23ce6b;">It is about 85 - 90% accurate.</span>
-        </p>
+        {% if scanned == 0 %}
+        <div class="classifcation">
+            <div>
+              <form method="post" action='/water' enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="inputfile">
+                  <label for="inputTag">
+                    <h2>Select Image</h2> 
+                    <div class="imageicon">
+                      
+                      <i class="fa fa-5x fa-camera"></i>
+                      <input id="inputTag" type="file" name="image" >
+                    </div>
+                  </label>
+                    <span id="imageName"></span>
+                    <button type="submit" id="inputGroupFileAddon04" >Detect</button>
+                  </form>
+                </div>
+          </div>
+          {% else %}
+
+          <img class="detect" src="/static/assets/images/im.jpg" alt="">
+          {% endif %}
+
         <h3 style="
                 align-self: flex-start;
                 margin-left: 2rem;

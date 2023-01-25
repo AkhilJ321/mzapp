@@ -142,7 +142,13 @@
 }
 .mimg{
   padding: 2rem;
-    margin-right: 10rem;
+  margin-right: 10rem;
+}
+.detect{
+  height: 25rem;
+  width: 28rem;
+  margin-bottom: 1rem;
+  align-self: center;
 }
 .details{
   padding: 2rem;
@@ -820,9 +826,6 @@ header
 @media (max-width: 767px) {
   .background-header .main-nav .nav {
     margin-top: 80px !important;
-  }
-  .header-area .main-nav .logo {
-    color: #1e1e1e;
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
@@ -2394,8 +2397,9 @@ responsive
     color: transparent;
   }
   .header-area .main-nav a.logo {
-    background-image: url(../images/black-logo.png);
+    background-image: url(../images/white-logo.png);
     float: left;
+    background-repeat: no-repeat;
   }
   .header-area .logo {
     margin-left: 0px;

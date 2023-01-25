@@ -118,10 +118,12 @@ https://templatemo.com/tm-564-plot-listing
 {% elif scanned == 1 %}
 <h3 style="text-align: center;font-weight: 600;color: black;line-height: 70px;font-size: 45px;font-weight: 800;text-transform: capitalize;margin-top: 15px;">Mosquito scanned</h3>  <div class="details">
 <div class="classified">
-  <p><span>Confidence :</span> {{probability}}</p>
-     <p><span>Category :</span> Ades Aegypti</p>
-     <p><span>Description :</span> Aedes albopictus, from the mosquito family, also known as the tiger mosquito or forest mosquito, is a mosquito native to the tropical and subtropical areas of Southeast Asia. In the past few centuries, however, this species has spread to many countries through the transport of goods and international travel</p>  
-     <p><span> Diseases :</span>  Dengue viruses are spread to people through the bites of infected Aedes species mosquitoes.</p>
+  <div class="details">
+    <p><span>Confidence :</span> {{probability}}</p>
+    
+    <p><span>Category :</span> Ades Aegypti</p>
+    <p><span>Description :</span> Aedes albopictus, from the mosquito family, also known as the tiger mosquito or forest mosquito, is a mosquito native to the tropical and subtropical areas of Southeast Asia. In the past few centuries, however, this species has spread to many countries through the transport of goods and international travel</p>  
+    <p><span> Diseases :</span>  Dengue viruses are spread to people through the bites of infected Aedes species mosquitoes.</p>
   </div>
   <div class="mimg">
     <img src="{% static 'assets/images/ades.jpeg' %}" alt="">

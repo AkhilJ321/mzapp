@@ -3,6 +3,29 @@ from . import k
 import urllib.request
 import json
 import ast
+import cv2
+import os
+import numpy as np
+def grab_image(path=None, stream=None, url=None):
+	# if the path is not None, then load the image from disk
+	if path is not None:
+		image = cv2.imread(path)
+	# otherwise, the image does not reside on disk
+	else:	
+		# if the URL is not None, then download the image
+		if url is not None:
+			resp = urllib.request.urlopen(url)
+			data = resp.read()
+		# if the stream is not None, then the image has been uploaded
+		elif stream is not None:
+			data = stream.read()
+		# convert the image to a NumPy array and then read it into
+		# OpenCV format
+		image = np.asarray(bytearray(data), dtype="uint8")
+		image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+ 
+	# return the image
+	return image
 def home(request):
   return render(request,'category.html')
 
@@ -40,7 +63,33 @@ def contact(request):
         context = {"f":0}
     return render(request ,'contact.html',context)
 def water(request):
-    return render(request ,'water.html')
+    if request.method == "POST":
+     try:
+         os.remove('im.jpg')
+     except:
+        imgs = request.FILES['image']
+
+       
+        results = k.detect(img=imgs)
+
+   
+        imgs.seek(0)
+
+        image = grab_image(stream =imgs)
+        for predictions in results:
+         if predictions.probability >0.3:
+          x1 = int(predictions.bounding_box.left*image.shape[0])
+          y1 = int(predictions.bounding_box.top*image.shape[1])
+
+          x2 = int(predictions.bounding_box.top*image.shape[0]+predictions.bounding_box.height*image.shape[0])
+          y2 = int(predictions.bounding_box.left*image.shape[0]+predictions.bounding_box.width*image.shape[1])
+
+          cv2.rectangle(image,(x1,y1),(y2,x2),(0,0,255),3)
+        cv2.imwrite('static/assets/images/im.jpg',image)
+        context = {"scanned":1}
+        return render(request , 'water.html',context)
+    context = {"scanned":0}
+    return render(request ,'water.html',context)
 def endemic(request):
     if request.method=="POST":
         city = request.POST.get('city')
