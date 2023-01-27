@@ -1,5 +1,5 @@
 from django.contrib import admin
-from home.models import image
+from home.models import mosquito
 # Register your models here.
-admin.site.register(image)
+admin.site.register(mosquito)
 
