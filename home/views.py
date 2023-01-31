@@ -4,9 +4,10 @@ import urllib.request
 import json
 import ast
 import os
+
 import numpy as np
 from io import BytesIO
-from .models import mosquito
+from .models import mosquito , data
 from PIL import Image ,ImageDraw
 def grab_image(path=None, stream=None, url=None):
 	# if the path is not None, then load the image from disk
@@ -42,12 +43,22 @@ def detect(request):
 
         print("hll")
         predictions = k.pred(img=img)
+        try:
+         c = data.objects.get(city=city)
+        except:
+            c=data(city = city)
         if predictions.tag_name == 'culex':
             scanned = 2
+            c.culex += 1
         elif predictions.tag_name=='ades_aegypti':
             scanned= 1
+            c.ades +=1
+        else:
+            c.anoph += 1
+        
         mos =mosquito(city = city , mosquito =predictions.tag_name)
         mos.save()
+        c.save()
         context = {'name':predictions.tag_name,'probability':predictions.probability,'scanned':scanned}
         return render(request,'classification.html',context=context)
      except:
@@ -154,3 +165,9 @@ def endemic(request):
     }  
 
     return render(request,'endemic.html',context)
+def hotspot(request):
+    mo = data.objects.all()
+    context={'mosquito':mo}
+    return render(request,'hotspot_visualization.html',context)
+def platform(request):
+    return render(request,'platform.html')

@@ -15,7 +15,7 @@
       rel="stylesheet"
     />
 
-    <title>Contact us</title>
+    <title>Hotspot Visualisation</title>
 
     <!-- Bootstrap core CSS -->
     <link
@@ -47,8 +47,68 @@ https://templatemo.com/tm-564-plot-listing
 -->
   </head>
   <body>
-    <footer>
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
       <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="/home" class="logo">
+
+                          <img src="{% static 'assets/images/white-logo1.png' %}" alt="">
+                          <h4>M-ZAP</h4>
+                      </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li><a href="/home">Home</a></li>
+                          <li><a href="/about" class="active">About us</a></li>
+                          <li><a href="/contact">Contact Us</a></li>
+                          <li><a href="/platform">Our Platform</a></li>
+                      </ul>
+                      <a class="menu-trigger">
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <div class="page-heading">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8">
+                  <div class="top-text header-text">
+                      <h6>Hotspot Visualisation</h6>
+                      <h2>Hotspot Visualisation</h2>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="tabl">
+    <table>
+      <tr class="trs">
+        <td></td>
+        <th>Ades Aegypti</th>
+        <th>Culex quinquefasciatus</th>
+        <th> Anopheles stephensi</th>
+      </tr>
+      {% for x in mosquito %}
+      <tr>
+        <th>{{x.city}}</th>
+        <td>{{x.ades}}</td>
+        <td>{{x.culex}}</td>
+        <td>{{x.anoph}}</td>
+      </tr>
+       {% endfor %}
+       </table>
+  </div>
+  
+  <footer>
+    <div class="container">
         <div class="row">
           <div class="col-lg-4">
             <div class="about">

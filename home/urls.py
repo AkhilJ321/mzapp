@@ -9,6 +9,8 @@ urlpatterns = [
    path('contact',views.contact,name='contact'),
    path('water',views.water,name='water'),
    path('endemic',views.endemic,name='endemic'),
+   path('hotspot',views.hotspot,name='hotspot'),
+   path('platform',views.platform,name='platform'),
 
 
 ]
